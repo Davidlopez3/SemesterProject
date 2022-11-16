@@ -46,11 +46,3 @@ Classes:
 +Hand
 +Player
 
-Dev Log:
-11/2/2022: Duplicated Strings in Shuffle method; compile a local deck? (fixed)
-             - Just used Collections.shuffle(deck)
-             - Retrospectively the original method was a complex solution to a simple problem; simplify your code
-
-11/10/2022: Need a Bet method to handle transitioning players and holding their bets as an int
-            Minimum bet: 1 Maximum bet: 100
-            Exclude symbols
