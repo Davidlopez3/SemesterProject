@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+    <children>
+        <HBox layoutX="36.0" layoutY="14.0" prefHeight="47.0" prefWidth="211.0" style="-fx-background-color: blue; -fx-border-radius: 30;">
+         <children>
+                <Label prefHeight="52.0" prefWidth="211.0" style="-fx-background-color: purple; -fx-font-family: broadway;" text="Player 6" textFill="WHITE">
+                    <font>
+                        <Font size="34.0" />
+                    </font>
+                </Label>
+         </children>
+        </HBox>
+        <HBox layoutX="36.0" layoutY="73.0" prefHeight="144.0" prefWidth="524.0" style="-fx-background-color: purple;" />
+        <HBox layoutX="9.0" layoutY="286.0" prefHeight="100.0" prefWidth="278.0">
+            <children>
+                <Label prefHeight="65.0" prefWidth="305.0" style="-fx-font-family: broadway;" text="Hit or Stand " textFill="WHITE">
+                    <font>
+                        <Font size="38.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <Label layoutX="17.0" layoutY="212.0" prefHeight="70.0" prefWidth="211.0" style="-fx-font-family: broadway;" text="Total :" textFill="#e1e1e1">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Label>
+        <TextArea layoutX="299.0" layoutY="258.0" prefHeight="94.0" prefWidth="236.0" promptText="Press H to Hit or S to stand">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </TextArea>
+    </children>
+</AnchorPane>

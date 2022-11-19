@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+    <children>
+        <Label layoutX="197.0" layoutY="80.0" prefHeight="51.0" prefWidth="206.0" style="-fx-font-family: Broadway;" text="Player 3" textFill="#ffe601">
+            <font>
+                <Font size="41.0" />
+            </font>
+        </Label>
+        <Label layoutX="196.0" layoutY="80.0" prefHeight="51.0" prefWidth="206.0" style="-fx-font-family: Broadway;" text="Player 3" textFill="#388f23">
+            <font>
+                <Font size="41.0" />
+            </font>
+        </Label>
+        <Label layoutX="64.0" layoutY="155.0" prefHeight="51.0" prefWidth="206.0" style="-fx-font-family: Broadway;" text="Name" textFill="WHITE">
+            <font>
+                <Font size="41.0" />
+            </font>
+        </Label>
+        <Label layoutX="65.0" layoutY="155.0" prefHeight="51.0" prefWidth="206.0" style="-fx-font-family: Broadway;" text="Name" textFill="#388f23">
+            <font>
+                <Font size="41.0" />
+            </font>
+        </Label>
+        <TextArea layoutX="210.0" layoutY="155.0" prefHeight="51.0" prefWidth="344.0" style="-fx-border-radius: 15;">
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+        </TextArea>
+    </children>
+</AnchorPane>
