@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #990000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="$CONTROLLER_NAME$">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="355.0" layoutX="26.0" layoutY="23.0" stroke="#ffff06" strokeType="INSIDE" width="547.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="119.0" layoutX="103.0" layoutY="132.0" stroke="#4af260" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 60;" width="386.0" />
+   </children>
+</AnchorPane>
