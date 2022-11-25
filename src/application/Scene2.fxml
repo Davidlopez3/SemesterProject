@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.AmbientLight?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<fx:root fx:id="table" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: darkseagreen;" type="Pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <children>
+      <Rectangle fx:id="tableOverlay" arcHeight="5.0" arcWidth="5.0" fill="#5b4848" height="1000.0" layoutX="40.0" layoutY="40.0" stroke="#5b4848" strokeType="INSIDE" width="1200.0" />
+      <HBox fx:id="dealerSide" layoutX="40.0" layoutY="40.0" prefHeight="400.0" prefWidth="1200.0">
+         <children>
+            <ImageView fx:id="dealerCard1" fitHeight="306.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="dealerCard2" fitHeight="306.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="dealerCard3" fitHeight="306.0" fitWidth="200.0" layoutX="210.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="dealerCard4" fitHeight="306.0" fitWidth="200.0" layoutX="410.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="dealerCard5" fitHeight="306.0" fitWidth="200.0" layoutX="610.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="dealerCard6" fitHeight="306.0" fitWidth="200.0" layoutX="810.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox fx:id="playerSide" layoutX="40.0" layoutY="640.0" prefHeight="400.0" prefWidth="1200.0">
+         <children>
+            <ImageView fx:id="playerCard1" fitHeight="306.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard2" fitHeight="306.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard3" fitHeight="306.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard4" fitHeight="306.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard5" fitHeight="306.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard6" fitHeight="306.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <Button fx:id="stand" layoutX="1334.0" layoutY="837.0" mnemonicParsing="false" onAction="#standHandler" prefHeight="30.0" prefWidth="65.0" scaleX="3.0" scaleY="3.0" scaleZ="3.0" text="STAND" textAlignment="CENTER">
+         <font>
+            <Font name="Gurmukhi MT" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="hit" layoutX="1334.0" layoutY="697.0" mnemonicParsing="false" onAction="#hitHandler" prefHeight="30.0" prefWidth="65.0" scaleX="3.0" scaleY="3.0" scaleZ="3.0" text="HIT" textAlignment="CENTER">
+         <font>
+            <Font name="Gurmukhi MT" size="13.0" />
+         </font>
+      </Button>
+      <AmbientLight fx:id="ambientLight" blendMode="SOFT_LIGHT" layoutX="640.0" layoutY="540.0" opacity="0.5" scaleX="10.0" scaleY="10.0" scaleZ="5.0">
+         <color>
+            <Color red="1.0" green="0.9297839403152466" blue="0.6990740895271301" />
+         </color>
+         <effect>
+            <Bloom />
+         </effect>
+      </AmbientLight>
+      <Label fx:id="dealerPoints" layoutX="1391.0" layoutY="89.0" prefHeight="35.0" prefWidth="120.0" scaleX="3.0" scaleY="3.0" scaleZ="3.0" text="Dealer: ?" textFill="#000000b2">
+         <font>
+            <Font name="Gurmukhi MT" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerPoints" layoutX="1397.0" layoutY="959.0" prefHeight="35.0" prefWidth="120.0" scaleX="3.0" scaleY="3.0" scaleZ="3.0" text="Player: 0" textFill="#000000b2">
+         <font>
+            <Font name="Gurmukhi MT" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="exit" layoutX="1814.0" layoutY="38.0" mnemonicParsing="false" onAction="#hitHandler" prefHeight="31.0" prefWidth="53.0" scaleX="2.5" scaleY="2.5" scaleZ="2.5" text="EXIT" textAlignment="CENTER">
+         <font>
+            <Font name="Gurmukhi MT" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</fx:root>
