@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="1001.0" prefWidth="1900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController">
+   <children>
+      <Label layoutX="366.0" layoutY="38.0" style="-fx-text-fill: red; -fx-font-family: broadway; -fx-font-weight: BOLD; -fx-font-style: ITALIC; -fx-font-size: 200;" text="BlackJack" />
+      <Label layoutX="370.0" layoutY="34.0" style="-fx-text-fill: YELLOW; -fx-font-family: broadway; -fx-font-weight: BOLD; -fx-font-style: ITALIC; -fx-font-size: 200;" text="BlackJack" />
+      <Label layoutX="427.0" layoutY="843.0" style="-fx-text-fill: RED; -fx-font-family: broadway; -fx-font-weight: BOLD; -fx-font-style: ITALIC; -fx-font-size: 100;" text="press enter to start" />
+      <Label layoutX="429.0" layoutY="839.0" style="-fx-text-fill: YELLOW; -fx-font-family: broadway; -fx-font-weight: BOLD; -fx-font-style: ITALIC; -fx-font-size: 100;" text="press enter to start" />
+      <ImageView fitHeight="568.0" fitWidth="400.0" layoutX="754.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/Back%20card%20three.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
