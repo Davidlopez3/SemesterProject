@@ -14,7 +14,7 @@
       <Label layoutX="429.0" layoutY="839.0" style="-fx-text-fill: YELLOW; -fx-font-family: broadway; -fx-font-weight: BOLD; -fx-font-style: ITALIC; -fx-font-size: 100;" text="press enter to start" />
       <ImageView fitHeight="568.0" fitWidth="400.0" layoutX="754.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="/Back%20card%20three.png" />
+            <Image url="@../Back%20card%20three.png" />
          </image>
       </ImageView>
    </children>
