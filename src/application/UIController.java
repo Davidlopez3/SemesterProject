@@ -1,69 +1,60 @@
 package application;
 import java.io.IOException;
+import java.util.Objects;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
-import javafx.scene.AmbientLight;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 
 public class UIController {
 
     private Stage stage;
     private Scene scene;
-    public Parent root;
 
-    public UIController() {
-    }
-
-
-    public void switchToScene1() throws IOException {
-        root = FXMLLoader.load(getClass().getResource("application/Scene1.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    public void switchToTable(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
+                ("application.Tables.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void switchToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // Table.fxml Framework
 
-    // Scene2.fxml Skeleton
+    @FXML
+    private Label betLabel;
 
-    @FXML // fx:id="ambientLight"
-    private AmbientLight ambientLight; // Value injected by FXMLLoader
+    @FXML
+    private TextArea betTextArea;
 
-    @FXML // fx:id="dealerCard1"
-    public ImageView dealerCard1; // Value injected by FXMLLoader
+    @FXML
+    private ImageView dealerCard1;
 
-    @FXML // fx:id="dealerCard2"
-    public ImageView dealerCard2; // Value injected by FXMLLoader
+    @FXML
+    private ImageView dealerCard2;
 
-    @FXML // fx:id="dealerCard3"
-    public ImageView dealerCard3; // Value injected by FXMLLoader
+    @FXML
+    private ImageView dealerCard3;
 
-    @FXML // fx:id="dealerCard4"
-    public ImageView dealerCard4; // Value injected by FXMLLoader
+    @FXML
+    private ImageView dealerCard4;
 
-    @FXML // fx:id="dealerCard5"
-    public ImageView dealerCard5; // Value injected by FXMLLoader
+    @FXML
+    private ImageView dealerCard5;
 
-    @FXML // fx:id="dealerCard6"
-    public ImageView dealerCard6; // Value injected by FXMLLoader
+    @FXML
+    private ImageView dealerCard6;
 
     public void dealerCardImage(Image card, int num) {
         switch(num) {
@@ -97,61 +88,42 @@ public class UIController {
         dealerCard6.setImage(null);
     }
 
-    @FXML // fx:id="dealerPoints"
-    public Label dealerPoints; // Value injected by FXMLLoader
+    @FXML
+    private Label dealerTotalLabel;
 
     public void setDealerPoints(int points) {
-        dealerPoints.setText("Dealer: " + points);
+        dealerTotalLabel.setText("Dealer: " + points);
     }
-
-    @FXML // fx:id="dealerSide"
-    public HBox dealerSide; // Value injected by FXMLLoader
-
-    @FXML // fx:id="exit"
-    public Button exit; // Value injected by FXMLLoader
-
-    @FXML // fx:id="hit"
-    public Button hit; // Value injected by FXMLLoader
-
-    @FXML // fx:id="stand"
-    public Button stand; // Value injected by FXMLLoader
-
-    public void buttonLoad() {
-
+    public void resetDealerPoints() {
+        dealerTotalLabel.setText("Dealer: ?");
     }
 
     @FXML
-    public void hitHandler(ActionEvent event) {
-
-    }
+    public Label insuranceLabel;
 
     @FXML
-    public void standHandler(ActionEvent event) {
-
-    }
+    public ToggleButton insuranceNoButton;
 
     @FXML
-    public void exitHandler(ActionEvent event) {
+    public ToggleButton insuranceYesButton;
 
-    }
+    @FXML
+    private ImageView playerCard1;
 
-    @FXML // fx:id="playerCard1"
-    public ImageView playerCard1; // Value injected by FXMLLoader
+    @FXML
+    private ImageView playerCard2;
 
-    @FXML // fx:id="playerCard2"
-    public ImageView playerCard2; // Value injected by FXMLLoader
+    @FXML
+    private ImageView playerCard3;
 
-    @FXML // fx:id="playerCard3"
-    public ImageView playerCard3; // Value injected by FXMLLoader
+    @FXML
+    private ImageView playerCard4;
 
-    @FXML // fx:id="playerCard4"
-    public ImageView playerCard4; // Value injected by FXMLLoader
+    @FXML
+    private ImageView playerCard5;
 
-    @FXML // fx:id="playerCard5"
-    public ImageView playerCard5; // Value injected by FXMLLoader
-
-    @FXML // fx:id="playerCard6"
-    public ImageView playerCard6; // Value injected by FXMLLoader
+    @FXML
+    private ImageView playerCard6;
 
     @FXML
     public void playerCardImage(Image card, int num) {
@@ -187,23 +159,46 @@ public class UIController {
         playerCard6.setImage(null);
     }
 
-    @FXML // fx:id="playerPoints"
-    public Label playerPoints; // Value injected by FXMLLoader
+    @FXML
+    private Label playerTotalLabel;
 
     public void setPlayerPoints(int points) {
-        dealerPoints.setText("Player: " + points);
+        playerTotalLabel.setText("Player: " + points);
     }
 
-    @FXML // fx:id="playerSide"
-    public HBox playerSide; // Value injected by FXMLLoader
+    @FXML
+    public Label hitStandLabel;
 
-    @FXML // fx:id="table"
-    private Pane table; // Value injected by FXMLLoader
+    @FXML
+    public Button hitButton;
 
-    @FXML // fx:id="tableOverlay"
-    private Rectangle tableOverlay; // Value injected by FXMLLoader
+    @FXML
+    public Button standButton;
+
+    @FXML
+    private Label resultLabel;
+
+    public void setResultLabel(String result) {
+        resultLabel.setText("Result: " + result);
+    }
+
+    @FXML
+    public Label fundsLabel;
+
+    @FXML
+    public Label continueLabel;
+
+    @FXML
+    public Button yesButton;
+
+    @FXML
+    public Button noButton;
+
 
 }
+
+
 // DAVID
 // SceneBuilder framework
-// edits by SAM (11/24/2022)
+// fxml edits by DAVID (11/25/2022)
+// edits by SAM (11/24/2022, 11/25/2022)

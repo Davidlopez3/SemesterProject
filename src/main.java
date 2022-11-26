@@ -1,8 +1,8 @@
+import application.UIController;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -12,30 +12,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class main extends Application {
 
+    public Button start = new Button();
 
-    public void secondstage (Stage stage){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("application/Scene1.fxml"));
-            Scene scene = new Scene(root);
-            //scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-            String css = this.getClass().getResource("application.css").toExternalForm();
-            scene.getStylesheets().add(css);
-            //scene2.getStylesheets().add(css);
-            stage.setScene(scene);
-
-
-            stage.show();
-
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-    public static void main(String[] args) {
+    public main(String[] args) {
         launch(args);
     }
 
@@ -43,7 +26,6 @@ public class main extends Application {
     public void start(Stage primaryStage) {
 
         Group root = new Group();
-        Button startPrompt = new Button();
 
         //Title
         Text h1 =  new Text( "BlackJack");
@@ -90,14 +72,21 @@ public class main extends Application {
         vbox.setAlignment(Pos.CENTER);
 
         //Button Prompt
-
+        start.setVisible(false);
+        start.setManaged(true);
+        start.setMinSize(1200, 900);
+        start.setMaxSize(1200, 900);
+        start.setOnAction(event -> {
+            try {
+                UIController uiController = new UIController();
+                uiController.switchToTable(startHandler(start.isPressed()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
         root.getChildren().add(text);
-//        root.getChildren().add(h1);
-//        root.getChildren().add(h2);
         root.getChildren().add(imageView);
-//        root.getChildren().add(h3);
-//        root.getChildren().add(h4);
 
 
         Scene scene = new Scene( root,1200 , 900, Color.BLACK);
@@ -110,17 +99,16 @@ public class main extends Application {
         primaryStage.show();
     }
 
-
-//    public void promptEnterKey(){
-//        // System.out.println("Press \"ENTER\" to continue...");
-//        Scanner scanner = new Scanner(System.in);
-//        scanner.nextLine();
-//    }
-
+    public ActionEvent startHandler(boolean start) {
+        if (start) {
+            return new ActionEvent();
+        }
+        return null;
+    }
 }
 
 // all the layers https://edencoding.com/scene-background/
 // https://www.reddit.com/r/JavaFX/comments/izrr3y/timeline_with_fade_in_and_fade_out_text_label/
 
 // DAVID
-//edits by SAM (11/24/2022)
+//edits by SAM (11/24/2022 and 11/25/2022)
