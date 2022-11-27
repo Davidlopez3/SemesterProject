@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+   <children>
+      <HBox layoutX="109.0" prefHeight="212.0" prefWidth="409.0">
+         <children>
+            <Label prefHeight="212.0" prefWidth="401.0" style="-fx-font-family: broadway;" text="Do you want to play again ?" textFill="#fffb00">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Button layoutX="109.0" layoutY="223.0" mnemonicParsing="false" style="-fx-background-color: blue; -fx-font-family: broadway;" text="Yes" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="413.0" layoutY="223.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-font-family: broadway;" text="No" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
