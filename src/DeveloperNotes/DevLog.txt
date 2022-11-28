@@ -19,7 +19,7 @@ Start of Version 3.0 of the Blackjack program: (10-Hour Session)
           this FXML file
 
     - Imported CardsFinished as a resource file separate from the src directory (David's contribution)
-        - This contains all 52 cards of the deck that are called by application.Cards class to be used in
+        - This contains all 52 cards of the deck that are called by test.Cards class to be used in
           every ImageView object in the program
         - Updates to card H12, H13, D12, and D13
 
@@ -31,10 +31,10 @@ Start of Version 3.0 of the Blackjack program: (10-Hour Session)
 
     - Integration of back-end into the front-end (Sam's contribution)
         - Along with the conversion to JavaFX included the near complete integration of FXML into
-          these back-end classes: application.Cards and application.Game
-        - LAMBDA expressions integrated into the application.Game class to deal with button inputs going into
+          these back-end classes: test.Cards and test.Game
+        - LAMBDA expressions integrated into the test.Game class to deal with button inputs going into
           the application package
-        - Calls for all application.Cards Image objects to be integrated into the application package's many ImageView objects
+        - Calls for all test.Cards Image objects to be integrated into the application package's many ImageView objects
 
 DevLog: 11/25/2022
 Continued development on FXML files, etc.: (6-Hour Session)
@@ -55,3 +55,6 @@ Continued development on FXML files, etc.: (6-Hour Session)
         - Should have all necessary JavaFX calls, double check on debugging
         - There's a comedic System.exit(0) on line 365 btw
         - All ui controls are correctly reassigned according to UIController updates
+
+DevLog: 11/27/2022
+JavaFX and FXML files running, debugging going into 11/28/2022
