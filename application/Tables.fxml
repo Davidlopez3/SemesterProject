@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<!-- Tables FXML file made in SceneBuilder-->
+<!-- Controlled by UIController under the applications package-->
+<!-- Davidlopez3 (11-25-2022)-->
+<!-- close -->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UIController">
+    <children>
+        <AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #800000; -fx-max-height: 1280;">
+            <children>
+                <Pane layoutX="10.0" layoutY="10.0" prefHeight="570.0" prefWidth="600.0">
+                    <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="560.0" layoutX="10.0" layoutY="10.0" stroke="#ffff06" strokeType="INSIDE" width="600.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="128.0" layoutX="70.0" layoutY="110.0" stroke="#4af260" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 60;" width="75.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="128.0" layoutX="150.0" layoutY="110.0" stroke="#4af260" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 60;" width="75.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="128.0" layoutX="230.0" layoutY="110.0" stroke="#4af260" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 60;" width="75.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="128.0" layoutX="310.0" layoutY="110.0" stroke="#4af260" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 60;" width="75.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="128.0" layoutX="390.0" layoutY="110.0" stroke="#4af260" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 60;" width="75.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#008d09" height="128.0" layoutX="470.0" layoutY="110.0" stroke="#4af260" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 60;" width="75.0" />
+                        <ImageView id="dealerCard1" fx:id="dealerCard1" fitHeight="130.0" fitWidth="80.0" layoutX="70.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="dealerCard2" fx:id="dealerCard2" fitHeight="130.0" fitWidth="80.0" layoutX="150.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="dealerCard3" fx:id="dealerCard3" fitHeight="130.0" fitWidth="80.0" layoutX="230.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="dealerCard4" fx:id="dealerCard4" fitHeight="130.0" fitWidth="80.0" layoutX="310.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="dealerCard5" fx:id="dealerCard5" fitHeight="130.0" fitWidth="80.0" layoutX="390.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="dealerCard6" fx:id="dealerCard6" fitHeight="130.0" fitWidth="80.0" layoutX="470.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="PlayerCard1" fx:id="playerCard1" fitHeight="130.0" fitWidth="80.0" layoutX="70.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="PlayerCard2" fx:id="playerCard2" fitHeight="130.0" fitWidth="80.0" layoutX="150.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="PlayerCard3" fx:id="playerCard3" fitHeight="120.0" fitWidth="80.0" layoutX="230.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="PlayerCard4" fx:id="playerCard4" fitHeight="130.0" fitWidth="80.0" layoutX="310.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="PlayerCard6" fx:id="playerCard5" fitHeight="130.0" fitWidth="80.0" layoutX="390.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView id="PlayerCard5" fx:id="playerCard6" fitHeight="130.0" fitWidth="80.0" layoutX="470.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label id="Q4" fx:id="playerTotalLabel" layoutX="72.0" layoutY="424.0" prefHeight="37.0" prefWidth="494.0" style="-fx-font-family: Broadway;" text="Player:" textFill="#eeff00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label id="Q4" fx:id="dealerTotalLabel" layoutX="70.0" layoutY="55.0" prefHeight="45.0" prefWidth="213.0" style="-fx-font-family: Broadway;" text="Dealer: ?" textFill="#eeff00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label id="Q4" fx:id="resultLabel" layoutX="72.0" layoutY="464.0" prefHeight="37.0" prefWidth="494.0" style="-fx-font-family: Broadway;" text="Result:" textFill="#eeff00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label id="Q4" fx:id="fundsLabel" layoutX="72.0" layoutY="504.0" prefHeight="37.0" prefWidth="494.0" style="-fx-font-family: Broadway;" text="Funds:" textFill="#eeff00">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </Pane>
+                <HBox layoutX="389.0" layoutY="631.0" prefHeight="82.0" prefWidth="433.0" />
+                <AnchorPane layoutX="620.0" layoutY="9.0" prefHeight="683.0" prefWidth="644.0">
+                    <children>
+                        <VBox layoutX="20.0" prefHeight="550.0" prefWidth="600.0">
+                            <children>
+                                <HBox prefHeight="0.0" prefWidth="644.0" />
+                                <HBox prefHeight="15.0" prefWidth="459.0" />
+                                <HBox prefHeight="50.0" prefWidth="450.0">
+                                    <children>
+                                        <Label id="Q1" fx:id="betLabel" prefHeight="99.0" prefWidth="374.0" style="-fx-font-family: Broadway;" text="  How much you are going to bet ?" textFill="#eeff00">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                        <TextArea id="Count" fx:id="betTextArea" prefHeight="50.0" prefWidth="200.0" promptText="\$$$" style="-fx-border-radius: 10; -fx-font-family: Broadway;">
+                                            <font>
+                                                <Font size="35.0" />
+                                            </font>
+                                        </TextArea>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="12.0" prefWidth="644.0" />
+                                <HBox prefHeight="15.0" prefWidth="459.0">
+                           <children>
+                                      <Line endX="526.56494140625" endY="-28.003612518310547" startX="-109.89950561523438" startY="-24.46807861328125" strokeWidth="5.0" />
+                           </children></HBox>
+                                <HBox prefHeight="67.0" prefWidth="459.0">
+                                    <children>
+                                        <Label id="Q2" fx:id="insuranceLabel" prefHeight="64.0" prefWidth="679.0" style="-fx-font-family: Broadway;" text="Do you want insurance ? " textFill="#eeff00">
+                                            <font>
+                                                <Font size="41.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="87.0" prefWidth="459.0">
+                                    <children>
+                                        <ToggleButton id="Yes1" fx:id="insuranceYesButton" lineSpacing="5.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: blue; -fx-font-family: Broadway;" text="Yes" textFill="WHITE">
+                                            <font>
+                                                <Font size="29.0" />
+                                            </font>
+                                        </ToggleButton>
+                                        <VBox prefHeight="87.0" prefWidth="130.0" />
+                                        <ToggleButton id="No1" fx:id="insuranceNoButton" lineSpacing="5.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: Red; -fx-font-family: Broadway;" text="No" textFill="WHITE">
+                                            <font>
+                                                <Font size="29.0" />
+                                            </font>
+                                        </ToggleButton>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="9.0" prefWidth="459.0" />
+                                <HBox prefHeight="1.0" prefWidth="644.0" />
+                                <Line endX="516.56494140625" endY="-28.004539489746094" startX="-109.89950561523438" startY="-24.46807861328125" strokeWidth="5.0" />
+                                <Label id="Q3" fx:id="hitStandLabel" prefHeight="73.0" prefWidth="636.0" style="-fx-font-family: Broadway;" text="Do you want to hit or stand ? " textFill="#eeff00">
+                                    <font>
+                                        <Font size="41.0" />
+                                    </font>
+                                </Label>
+                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Button id="Hit" fx:id="hitButton" mnemonicParsing="false" onAction="#playerTurn" prefHeight="70.0" prefWidth="170.0" style="-fx-font-family: Broadway;" text="Hit">
+                                            <font>
+                                                <Font size="29.0" />
+                                            </font>
+                                        </Button>
+                                        <VBox prefHeight="100.0" prefWidth="130.0" />
+                                        <Button id="Stay" fx:id="standButton" mnemonicParsing="false" onAction="#dealerOpen" prefHeight="70.0" prefWidth="170.0" style="-fx-font-family: Broadway;" text="Stand">
+                                            <font>
+                                                <Font size="29.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                      <Label id="Q4" fx:id="continueLabel" layoutX="-200.0" layoutY="603.0" prefHeight="37.0" prefWidth="419.0" style="-fx-font-family: Broadway;" text="Do you want to keep playing ?" textAlignment="CENTER" textFill="#eeff00">
+                          <font>
+                              <Font size="30.0" />
+                          </font>
+                      </Label>
+                    </children>
+                </AnchorPane>
+                  <Button id="Yes2" fx:id="yesButton" layoutX="381.0" layoutY="657.0" mnemonicParsing="false" onAction="#start" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: blue; -fx-font-family: Broadway;" text="Yes" textFill="WHITE">
+                      <font>
+                          <Font size="29.0" />
+                      </font>
+                  </Button>
+                  <VBox layoutX="546.0" layoutY="657.0" prefHeight="64.0" prefWidth="109.0" />
+                  <Button id="No2" fx:id="noButton" layoutX="650.0" layoutY="657.0" mnemonicParsing="false" onAction="#switchToMain" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: red; -fx-font-family: Broadway;" text="No" textFill="WHITE">
+                      <font>
+                          <Font size="29.0" />
+                      </font>
+                  </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
