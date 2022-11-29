@@ -68,8 +68,3 @@ Debugging the Game script, increasing efficiency and uploading
         - New ImageView object to hold card.front variable set from visible to invisible and overlay over
           dealerCardTwo
     - Temporary insert for C11, D11, H11, S11
-
-DevLog: 11/27/2022
-Final
-
-    - It works without the gambling aspect
