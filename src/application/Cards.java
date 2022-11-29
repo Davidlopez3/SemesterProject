@@ -41,5 +41,4 @@ public class Cards {
 
 // code based on https://www.ryisnow.online/2021/05/java-sample-code-black-jack-game.html
 // alterations to change from Swing to JavaFX format
-
 // SAM

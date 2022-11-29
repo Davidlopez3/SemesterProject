@@ -1,15 +1,13 @@
 package application;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
@@ -43,19 +41,19 @@ public class UIController {
         stage.show();
     }
 
+    // CLASS INITIALIZATIONS
+    Cards card = new Cards();
+
     // Table.fxml Framework
-
-    @FXML
-    private Label betLabel;
-
-    @FXML
-    private TextArea betTextArea;
 
     @FXML
     private ImageView dealerCard1;
 
     @FXML
     private ImageView dealerCard2;
+
+    @FXML
+    private ImageView dealerCardFront;
 
     @FXML
     private ImageView dealerCard3;
@@ -104,22 +102,13 @@ public class UIController {
     @FXML
     private Label dealerTotalLabel;
 
-    public void setDealerPoints(int points) {
-        dealerTotalLabel.setText("Dealer: " + points);
+    public void setDealerPoints() {
+        dealerTotalLabel.setText("Dealer: " + dealerTotalValue());
     }
 
     public void resetDealerPoints() {
         dealerTotalLabel.setText("Dealer: ?");
     }
-
-    @FXML
-    public Label insuranceLabel;
-
-    @FXML
-    public ToggleButton insuranceNoButton;
-
-    @FXML
-    public ToggleButton insuranceYesButton;
 
     @FXML
     private ImageView playerCard1;
@@ -176,9 +165,11 @@ public class UIController {
     @FXML
     private Label playerTotalLabel;
 
-    public void setPlayerPoints(int points) {
-        playerTotalLabel.setText("Player: " + points);
+    public void setPlayerPoints() {
+        playerTotalLabel.setText("Player: " + playerTotalValue());
     }
+
+    public void resetPlayerPoints() {playerTotalLabel.setText("Player: ");}
 
     @FXML
     public Label hitStandLabel;
@@ -192,12 +183,9 @@ public class UIController {
     @FXML
     private Label resultLabel;
 
-    public void setResultLabel(String result) {
-        resultLabel.setText("Result: " + result);
-    }
+    public void setResultLabel(String result) {resultLabel.setText("Result: " + result);}
 
-    @FXML
-    public Label fundsLabel;
+    public void resetResultLabel() {resultLabel.setText("Result: ");}
 
     @FXML
     public Label continueLabel;
@@ -208,11 +196,7 @@ public class UIController {
     @FXML
     public Button noButton;
 
-    // GAME CLASS SCRAP INSERT
-
-    // CLASS INITIALIZATIONS
-    Cards card = new Cards();
-    Bets bet = new Bets();
+    // GAME CLASS INSERT
 
     // CARD INITIALIZATIONS
     // pickedCardNum and the amount of cards the player and dealer starts with initialized
@@ -220,70 +204,40 @@ public class UIController {
     private String pickedStringValue;
     private int playerHas = 0;
     private int dealerHas = 0;
-    private int[] playerCardNum = new int[6];
-    private int[] dealerCardNum = new int[6];
-    private int[] playerCardValue = new int[6];
-    private int[] dealerCardValue = new int[6];
-    // private String[] playerCardStringValue = new String[8];
+    private final int[] playerCardNum = new int[6];
+    private final int[] dealerCardNum = new int[6];
+    private final int[] playerCardValue = new int[6];
+    private final int[] dealerCardValue = new int[6];
     // total card values for player and dealer
     private int playerTotalValue;
     private int dealerTotalValue;
 
 
     // MISC INITIALIZATIONS
-    Image dealerSecondCard;
-    Image playerThirdCard;
     String situation = "";
-    // EVENT BOOLEANS
-    boolean restartState;
 
     // BET INITIALIZATIONS
-    // Values holding the originalPlayerBet and the currentPlayerBet
-    public double totalPool;
-    protected boolean win;
-    protected boolean loss;
-    protected boolean natural;
-    protected boolean insurance;
-    // doubleDown booleans to handle the method call
-    protected boolean doubleDown;
-    private boolean noDoubleDown;
-
-    public void start() {
-        yesButton.setOnAction(event -> {
-            if (restartState) {
-                // if restartState is default true the game starts
-                this.reset();
-                restartState = false;
-            }
-            if (!restartState) {
-                // if restartState is false the game restarts
-                this.startGame();
-                restartState = true;
-            }
-        });
-    }
+    private boolean natural;
 
     public void startGame() {
-        // manage button visibility for yesButton onAction=#start
-        yesButton.setVisible(false);
-        yesButton.setManaged(false);
-        noButton.setVisible(false);
-        noButton.setManaged(false);
-        continueLabel.setVisible(false);
-        insuranceYesButton.setOnAction(event -> {
-            if (insuranceYesButton.isSelected()) {
-                insurance = true;
-            }
+        yesButton.setOnAction(event -> {
+            reset();
+            // manage button visibility for yesButton onAction=#start
+            yesButton.setVisible(false);
+            yesButton.setManaged(false);
+            noButton.setVisible(false);
+            noButton.setManaged(false);
+            continueLabel.setVisible(false);
+
+            dealerDraw();
+            playerDraw();
+            dealerDraw();
+            // sets dealers second card fill in to
+            dealerCardFront.setVisible(true);
+            dealerCardFront.setImage(card.front);
+            playerTurn();
         });
-
-        dealerDraw();
-        playerDraw();
-        dealerDraw();
-        // sets dealers second card to the front side png
-        dealerCardImage(card.front,2);
-        playerTurn();
     }
-
 
     public void dealerDraw() {
         // increments the amount of cards the dealer has
@@ -312,7 +266,7 @@ public class UIController {
 
         // passes in the picked card into the first value the player has
         playerCardNum[playerHas] = pickedCardNum;
-        //        playerCardStringValue[playerHas] = pickedStringValue;
+        // playerCardStringValue[playerHas] = pickedStringValue;
         playerCardValue[playerHas] = checkCardValue();
 
         // sets the imageView to the given card passed through pickedCard
@@ -323,56 +277,46 @@ public class UIController {
     }
 
     @FXML
+    // hitButton onAction=#playerTurn
     public void playerTurn() {
-        situation = "playerTurn";
-
-        if (!noDoubleDown) {
-            playerDraw();
-        }
-
-        //        if (playerHas == 2 && checkSplittingPairs()) {
-        //            // do you want to split pairs
-        //        }
-
+        playerDraw();
+        // setPlayerPoints label to total card value
+        setPlayerPoints();
         // Player has busted
         if (playerTotalValue > 21) {
             dealerOpen();
         }
         // Player has a natural (21 on initial draw)
-        else if (playerTotalValue == 21 && playerHas == 2) {
+        else if (playerTotalValue == 21) {
             playerNatural();
         }
-
-        // If doubleDown is active we draw the third card faceDown
-        else if (doubleDown) {
-            playerCardImage(card.front, 3);
+        // Player has reached the integer limit for card hits; deny out of bounds exception
+        else if (playerHas == 7) {
             dealerOpen();
         }
-
-        // Calls playerDoubleDown() method; won't be called again
-//        else if (playerHas == 2 && playerTotalValue == 9 || playerTotalValue == 10 || playerTotalValue == 11
-//                && !noDoubleDown) {
-//            playerDoubleDown();
-//        }
-
-        else {
-            // Player can hit another card
-            if (playerHas > 1 && playerHas < 7) {
-                // do you want to hit again
-                // button prompt
-                hitStandLabel.setText("Do you want to hit another card?");
-                hitButton.setOnAction(event -> {
-                    playerTurn();
-                });
-                standButton.setOnAction(event -> {
-                    dealerOpen();
-                });
-            }
-            // Player has reached the integer limit for card hits; deny out of bounds exception
-            if (playerHas == 7) {
+        hitButton.setOnAction(event -> {
+            // Player has busted
+            if (playerTotalValue > 21) {
                 dealerOpen();
             }
-        }
+            // Player has a natural (21 on initial draw)
+            else if (playerTotalValue == 2) {
+                playerNatural();
+            }
+
+            else {
+                // Player can hit another card
+                if (playerHas > 1 && playerHas < 7) {
+                    // hit and stand state true, player default
+                    playerTurn();
+
+                }
+                // Player has reached the integer limit for card hits; deny out of bounds exception
+                if (playerHas == 7) {
+                    dealerOpen();
+                }
+            }
+        });
     }
 
     public void playerNatural() {
@@ -380,42 +324,15 @@ public class UIController {
         // boolean natural set to true for dealer methods
         natural = true;
 
-        hitStandLabel.setText("You have a natural.");
-        // buttons appear
-        standButton.setText("Continue");
-        standButton.setOnAction(event -> {
-            dealerOpen();
-            standButton.setText("Stand");
-        });
+        dealerOpen();
     }
 
-//    public void playerDoubleDown() {
-//        situation = "playerDoubleDown";
-//
-//        hitStandLabel.setText("You have two " + playerCardNum[playerHas] + "'s." +
-//                " Would you like to double down?");
-//        // buttons appear, ActionHandler call
-//        standButton.setText("Continue");
-//        standButton.setOnAction(event -> {
-//            noDoubleDown = true;
-//            playerTurn();
-//            standButton.setText("Stand");
-//        });
-//        hitButton.setText("Double");
-//        hitButton.setOnAction(event -> {
-//            doubleDown = true;
-//            playerTurn();
-//            hitButton.setText("Stand");
-//        });
-//    }
-
+    @FXML
+    // standButton onAction=#dealerOpen
     public void dealerOpen() {
         // reveal second card
-        dealerCardImage(dealerSecondCard, 2);// Reveal the second card
-        setDealerPoints(dealerTotalValue);
-        if (doubleDown) {
-            playerCardImage(playerThirdCard, 3);// Reveal the second card
-        }
+        dealerCardFront.setVisible(false); // Reveal the second card
+        setDealerPoints();
 
         // if the value is a natural
         if (natural) {
@@ -430,6 +347,25 @@ public class UIController {
         else {
             checkResult();
         }
+        standButton.setOnAction(event -> {
+            // reveal second card
+            dealerCardFront.setVisible(false);// Reveal the second card
+            setDealerPoints();
+
+            // if the value is a natural
+            if (natural) {
+                checkResult();
+            }
+
+            // if the dealerTotalValue is greater than 17 and the player is less than 21
+            else if (dealerTotalValue < 17 && playerTotalValue <= 21) {
+                dealerTurnContinue();
+            }
+
+            else {
+                checkResult();
+            }
+        });
     }
 
     public void dealerTurn() {
@@ -459,63 +395,53 @@ public class UIController {
     public void dealerTurnContinue() {
         situation = "dealerTurnContinue";
 
-        // buttons appear
-        hitStandLabel.setText("Dealers Turn");
-        standButton.setText("Continue");
-        standButton.setOnAction(event -> {
-            dealerTurn();
-            standButton.setText("Stand");
-        });
+        dealerTurn();
     }
 
     public void checkResult() {
         situation = "checkResult";
+        setDealerPoints();
 
         if (playerTotalValue > 21) {
             // you lost :) text call
             setResultLabel("You lost");
-            loss = true;
-            playerBetSettlement();
+//            loss = true;
+            gameFinish();
         }
         else {
             if (natural) {
                 if (dealerTotalValue == 21) {
                     // draw text call
                     setResultLabel("Draw");
-                    playerBetSettlement();
+                    gameFinish();
                 }
                 else {
                     // you won :( text call
                     setResultLabel("You won");
-                    win = true;
-                    playerBetSettlement();
+//                    win = true;
+                    gameFinish();
                 }
             }
             else {
                 if(dealerTotalValue < 22 && dealerTotalValue > playerTotalValue) {
                     // you lost :) text call
                     setResultLabel("You lost");
-                    loss = true;
-                    playerBetSettlement();
+//                    loss = true;
+                    gameFinish();
                 }
                 else if(dealerTotalValue == playerTotalValue) {
                     // draw text call
                     setResultLabel("Draw");
-                    playerBetSettlement();
+                    gameFinish();
                 }
                 else {
                     // you won :( text call
                     setResultLabel("You won");
-                    win = true;
-                    playerBetSettlement();
+//                    win = true;
+                    gameFinish();
                 }
             }
         }
-    }
-
-    public void playerBetSettlement() {
-        totalPool += bet.settlement(win, loss, natural, doubleDown, insurance);
-        gameFinish();
     }
 
     public void gameFinish() {
@@ -525,14 +451,17 @@ public class UIController {
         yesButton.setManaged(true);
         noButton.setVisible(true);
         noButton.setManaged(true);
+        continueLabel.setText("Do you want to keep playing?");
         continueLabel.setVisible(true);
-        // yesButton to reset()
-        // noButton to switchToTitle()
+        // hit and stand button manageability false
+        hitButton.setManaged(false);
+        standButton.setManaged(false);
     }
 
     public void reset() {
         dealerCardImageClear();
         playerCardImageClear();
+        resetResultLabel();
         for(int i=1; i < 6; i++) {
             playerCardNum[i]=0;
             playerCardValue[i]=0;
@@ -540,9 +469,11 @@ public class UIController {
             dealerCardValue[i]=0;
         }
         playerHas=0;
-        setPlayerPoints(playerHas);
+        resetPlayerPoints();
         dealerHas=0;
         resetDealerPoints();
+        hitButton.setManaged(true);
+        standButton.setManaged(true);
         // yesButton to startGame()
     }
 
@@ -592,7 +523,6 @@ public class UIController {
     }
 
     public Image pickRandomCard() {
-
         Image pickedCard = null;
         pickedStringValue = "";
         Random random = new Random();
@@ -672,59 +602,7 @@ public class UIController {
 
         return cardValue;
     }
-
-
-    //    private boolean checkSplittingPairs() {
-    //        String concatCard = "";
-    //        for (int i = 1; i <= playerHas; i++) {
-    //            concatCard = "+" + playerCardStringValue[i];
-    //        }
-    //        if (concatCard.matches("1{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("2{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("3{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("4{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("5{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("6{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("7{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("8{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("9{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("10{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("11{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("12{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else if (concatCard.matches("13{2}")) {
-    //            return splittingPairs = true;
-    //        }
-    //        else {
-    //            return splittingPairs = false;
-    //        }
-    //    }
 }
-
-
 
 // DAVID
 // SceneBuilder framework

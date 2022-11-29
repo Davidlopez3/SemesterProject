@@ -2,14 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -58,106 +55,49 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label id="Q4" fx:id="fundsLabel" layoutX="72.0" layoutY="504.0" prefHeight="37.0" prefWidth="494.0" style="-fx-font-family: Broadway;" text="Funds:" textFill="#eeff00">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
+                  <ImageView id="dealerCard2" fx:id="dealerCardFront" fitHeight="130.0" fitWidth="80.0" layoutX="150.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </Pane>
-                <HBox layoutX="389.0" layoutY="631.0" prefHeight="82.0" prefWidth="433.0" />
-                <AnchorPane layoutX="620.0" layoutY="9.0" prefHeight="683.0" prefWidth="644.0">
+                    <Label id="Q3" fx:id="hitStandLabel" layoutX="649.0" layoutY="31.0" prefHeight="73.0" prefWidth="627.0" style="-fx-font-family: Broadway;" text="Do you want to hit or stand ? " textFill="#eeff00">
+                        <font>
+                            <Font size="41.0" />
+                        </font>
+                    </Label>
+                <AnchorPane layoutX="643.0" layoutY="211.0" prefHeight="162.0" prefWidth="569.0">
                     <children>
-                        <VBox layoutX="20.0" prefHeight="550.0" prefWidth="600.0">
-                            <children>
-                                <HBox prefHeight="0.0" prefWidth="644.0" />
-                                <HBox prefHeight="15.0" prefWidth="459.0" />
-                                <HBox prefHeight="50.0" prefWidth="450.0">
-                                    <children>
-                                        <Label id="Q1" fx:id="betLabel" prefHeight="99.0" prefWidth="374.0" style="-fx-font-family: Broadway;" text="  How much you are going to bet ?" textFill="#eeff00">
-                                            <font>
-                                                <Font size="25.0" />
-                                            </font>
-                                        </Label>
-                                        <TextArea id="Count" fx:id="betTextArea" prefHeight="50.0" prefWidth="200.0" promptText="\$$$" style="-fx-border-radius: 10; -fx-font-family: Broadway;">
-                                            <font>
-                                                <Font size="35.0" />
-                                            </font>
-                                        </TextArea>
-                                    </children>
-                                </HBox>
-                                <HBox prefHeight="12.0" prefWidth="644.0" />
-                                <HBox prefHeight="15.0" prefWidth="459.0">
-                           <children>
-                                      <Line endX="526.56494140625" endY="-28.003612518310547" startX="-109.89950561523438" startY="-24.46807861328125" strokeWidth="5.0" />
-                           </children></HBox>
-                                <HBox prefHeight="67.0" prefWidth="459.0">
-                                    <children>
-                                        <Label id="Q2" fx:id="insuranceLabel" prefHeight="64.0" prefWidth="679.0" style="-fx-font-family: Broadway;" text="Do you want insurance ? " textFill="#eeff00">
-                                            <font>
-                                                <Font size="41.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
-                                </HBox>
-                                <HBox prefHeight="87.0" prefWidth="459.0">
-                                    <children>
-                                        <ToggleButton id="Yes1" fx:id="insuranceYesButton" lineSpacing="5.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: blue; -fx-font-family: Broadway;" text="Yes" textFill="WHITE">
-                                            <font>
-                                                <Font size="29.0" />
-                                            </font>
-                                        </ToggleButton>
-                                        <VBox prefHeight="87.0" prefWidth="130.0" />
-                                        <ToggleButton id="No1" fx:id="insuranceNoButton" lineSpacing="5.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: Red; -fx-font-family: Broadway;" text="No" textFill="WHITE">
-                                            <font>
-                                                <Font size="29.0" />
-                                            </font>
-                                        </ToggleButton>
-                                    </children>
-                                </HBox>
-                                <HBox prefHeight="9.0" prefWidth="459.0" />
-                                <HBox prefHeight="1.0" prefWidth="644.0" />
-                                <Line endX="516.56494140625" endY="-28.004539489746094" startX="-109.89950561523438" startY="-24.46807861328125" strokeWidth="5.0" />
-                                <Label id="Q3" fx:id="hitStandLabel" prefHeight="73.0" prefWidth="636.0" style="-fx-font-family: Broadway;" text="Do you want to hit or stand ? " textFill="#eeff00">
-                                    <font>
-                                        <Font size="41.0" />
-                                    </font>
-                                </Label>
-                                <HBox prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                        <Button id="Hit" fx:id="hitButton" mnemonicParsing="false" onAction="#playerTurn" prefHeight="70.0" prefWidth="170.0" style="-fx-font-family: Broadway;" text="Hit">
-                                            <font>
-                                                <Font size="29.0" />
-                                            </font>
-                                        </Button>
-                                        <VBox prefHeight="100.0" prefWidth="130.0" />
-                                        <Button id="Stay" fx:id="standButton" mnemonicParsing="false" onAction="#dealerOpen" prefHeight="70.0" prefWidth="170.0" style="-fx-font-family: Broadway;" text="Stand">
-                                            <font>
-                                                <Font size="29.0" />
-                                            </font>
-                                        </Button>
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-                      <Label id="Q4" fx:id="continueLabel" layoutX="-200.0" layoutY="603.0" prefHeight="37.0" prefWidth="419.0" style="-fx-font-family: Broadway;" text="Do you want to keep playing ?" textAlignment="CENTER" textFill="#eeff00">
+                      <Label id="Q4" fx:id="continueLabel" layoutX="15.0" layoutY="15.0" prefHeight="51.0" prefWidth="607.0" style="-fx-font-family: Broadway;" text="Do you want to play?" textAlignment="CENTER" textFill="#eeff00">
                           <font>
-                              <Font size="30.0" />
+                              <Font size="41.0" />
                           </font>
                       </Label>
+                        <Button id="Yes2" fx:id="yesButton" layoutX="18.0" layoutY="74.0" mnemonicParsing="false" onAction="#startGame" prefHeight="67.0" prefWidth="153.0" style="-fx-background-color: blue; -fx-font-family: Broadway;" text="Yes" textFill="WHITE">
+                            <font>
+                                <Font size="29.0" />
+                            </font>
+                        </Button>
+                        <VBox layoutX="181.0" layoutY="77.0" prefHeight="64.0" prefWidth="114.0" />
+                        <Button id="No2" fx:id="noButton" layoutX="298.0" layoutY="76.0" mnemonicParsing="false" onAction="#switchToMain" prefHeight="67.0" prefWidth="153.0" style="-fx-background-color: red; -fx-font-family: Broadway;" text="No" textFill="WHITE">
+                            <font>
+                                <Font size="29.0" />
+                            </font>
+                        </Button>
                     </children>
                 </AnchorPane>
-                  <Button id="Yes2" fx:id="yesButton" layoutX="381.0" layoutY="657.0" mnemonicParsing="false" onAction="#start" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: blue; -fx-font-family: Broadway;" text="Yes" textFill="WHITE">
-                      <font>
-                          <Font size="29.0" />
-                      </font>
-                  </Button>
-                  <VBox layoutX="546.0" layoutY="657.0" prefHeight="64.0" prefWidth="109.0" />
-                  <Button id="No2" fx:id="noButton" layoutX="650.0" layoutY="657.0" mnemonicParsing="false" onAction="#switchToMain" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: red; -fx-font-family: Broadway;" text="No" textFill="WHITE">
-                      <font>
-                          <Font size="29.0" />
-                      </font>
-                  </Button>
+                    <HBox layoutX="659.0" layoutY="106.0" prefHeight="104.0" prefWidth="439.0">
+                        <children>
+                            <Button id="Hit" fx:id="hitButton" mnemonicParsing="false" onAction="#playerTurn" prefHeight="70.0" prefWidth="170.0" style="-fx-font-family: Broadway;" text="Hit">
+                                <font>
+                                    <Font size="29.0" />
+                                </font>
+                            </Button>
+                            <VBox prefHeight="100.0" prefWidth="130.0" />
+                            <Button id="Stay" fx:id="standButton" mnemonicParsing="false" onAction="#dealerOpen" prefHeight="70.0" prefWidth="170.0" style="-fx-font-family: Broadway;" text="Stand">
+                                <font>
+                                    <Font size="29.0" />
+                                </font>
+                            </Button>
+                        </children>
+                    </HBox>
             </children>
         </AnchorPane>
     </children>

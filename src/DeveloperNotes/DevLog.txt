@@ -57,4 +57,19 @@ Continued development on FXML files, etc.: (6-Hour Session)
         - All ui controls are correctly reassigned according to UIController updates
 
 DevLog: 11/27/2022
-JavaFX and FXML files running, debugging going into 11/28/2022
+JavaFX and FXML files running, debugging going into 11/28/2022: (4-Hour Session)
+
+DevLog: 11/28/2022
+Debugging the Game script, increasing efficiency and uploading
+
+    - Fix the dealers second card view, we need an insert for the second card, not to change it to a null value
+        - Hold the value behind scenes
+        - Might check on reference for program 2 which I believe had a successful card hold
+        - New ImageView object to hold card.front variable set from visible to invisible and overlay over
+          dealerCardTwo
+    - Temporary insert for C11, D11, H11, S11
+
+DevLog: 11/27/2022
+Final
+
+    - It works without the gambling aspect
