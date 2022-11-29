@@ -1,0 +1,70 @@
+Hello! This is the final version of the Blackjack program that has gone through three generations
+(at least on the backend). I will likely update this more personally, but this will be the one submitted for
+a grade on 11/28/2022.
+
+The other two programs I won't include here they are broken beyond repair but this final product
+seems to be what we were looking for in the code and what we'll be working off of from now going forward.
+
+!!! DOWNLOAD CARDSFINISHED FOLDER AND PUT IT IN THE PROJECT DIRECTORY !!!
+
+DevLog: 11/24/2022
+Start of Version 3.0 of the Blackjack program: (10-Hour Session)
+
+    - Implementations of Davidlopez3's GUI in the form of FXML to Controllers (David's contribution)
+        - This was done specifically to make this monster code have more manageable scene transitions,
+          because this is significantly larger than anything we've worked on in the past.
+        - FXML is particularly useful in that it pairs well with 3rd-party visual applications
+          such as SceneBuilder which we used heavily in the creation of the GUI elements
+        - Soon to be scrapped SceneBuilder table by Sam (Scene1.fxml), Davidlopez3 is working on
+          this FXML file
+
+    - Imported CardsFinished as a resource file separate from the src directory (David's contribution)
+        - This contains all 52 cards of the deck that are called by test.Cards class to be used in
+          every ImageView object in the program
+        - Updates to card H12, H13, D12, and D13
+
+    - Complete conversion of Swing source to JavaFX format (Sam's contribution)
+        - The base of the scrapped version 2.0 of this program has been completely overhauled
+          and converted from its Swing source to a JavaFX format
+        - This was done to save time and has its own unique contributions within this program
+          in the form of betting and additional official Blackjack rules
+
+    - Integration of back-end into the front-end (Sam's contribution)
+        - Along with the conversion to JavaFX included the near complete integration of FXML into
+          these back-end classes: test.Cards and test.Game
+        - LAMBDA expressions integrated into the test.Game class to deal with button inputs going into
+          the application package
+        - Calls for all test.Cards Image objects to be integrated into the application package's many ImageView objects
+
+DevLog: 11/25/2022
+Continued development on FXML files, etc.: (6-Hour Session)
+
+    - Table.fxml updated, Title.fxml created based on current main method for easier UIController calls
+      created by Davidlopez3 (currently in the repo) (David's contribution)
+        - Insane amounts of recursive calls that ended up breaking the program led to this decision
+          (and no they weren't on purpose, Java saved me from breaking my Macbook)
+        - This logistically makes more sense since the UIController would deal with both scenes and
+          launch the program
+        - New Table.fxml almost completely integrated into the Game class
+
+    - Implemented Bets class to externally handle the chunky code for the Game class (Sam's contribution)
+        - It's so pretty and simple :) (besides the method with 5 boolean calls)
+        - Still needs more Game class and UIController integration
+
+    - Further flushed out the Game class (Sam's contribution)
+        - Should have all necessary JavaFX calls, double check on debugging
+        - There's a comedic System.exit(0) on line 365 btw
+        - All ui controls are correctly reassigned according to UIController updates
+
+DevLog: 11/27/2022
+JavaFX and FXML files running, debugging going into 11/28/2022: (4-Hour Session)
+
+DevLog: 11/28/2022
+Debugging the Game script, increasing efficiency and uploading
+
+    - Fix the dealers second card view, we need an insert for the second card, not to change it to a null value
+        - Hold the value behind scenes
+        - Might check on reference for program 2 which I believe had a successful card hold
+        - New ImageView object to hold card.front variable set from visible to invisible and overlay over
+          dealerCardTwo
+    - Temporary insert for C11, D11, H11, S11
